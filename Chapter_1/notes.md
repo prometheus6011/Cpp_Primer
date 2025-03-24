@@ -103,4 +103,135 @@ int main()
     - valid statement
     - valid statement
     - invalid statement, double quotes do not close
-    - valid statement
+    - invalid statement, extra closing comment sequence
+
+### 1.4 - Flow of Control
+- programming languages provide various flow-of-control statements that allow for more complicated execution paths
+
+##### 1.4.1 - The `while` Statement
+- repeatedly executes a section of code so long as a given condition is true
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    int sum = 0, val = 1;
+    // keep executing the while as long as val is less than or equal to 10
+    while (val <= 10) {
+        sum += val;
+        ++val;
+    }
+    std::cout << "Sum of 1 to 10 inclusive is " << sum << std::endl;
+    return 0;
+}
+```
+
+- a `while` executes by testing the condition and executing the associated statement until the condition is false
+    - a condition is an expression that yields a result that is either true or false
+- a block is a sequence of zero or more statements enclosed by curly braces
+
+###### Exercises
+9. `9.cpp`
+10. `10.cpp`
+11. `11.cpp`
+
+##### 1.4.2 - The `for` Statement
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    int sum = 0;
+    // sum values from 1 to 10 inclusive
+    for (int val = 1; val <= 10; ++val)
+        sum += val;
+    std::cout << "Sum of 1 to 10 inclusive is " << sum << std::endl;
+    return 0;
+}
+```
+
+- each `for` statement has two parts
+    - the header controls hopw often the body is executed
+        - the header itself contains three parts: an init-statement, a condition, and an expression
+    - a body
+
+###### Exercises
+12. the following for loop calculates the sum of [-100, 100], the final result is 0
+13. `13.cpp`
+
+##### 1.4.3 - Reading an Unknown Number of Inputs
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    int sum = 0, value = 0;
+    // read until end-of-file, calculating a running total of all values read
+    while (std::cin >> value)
+        sum += value;
+    std::cout << "Sum is: " << sum << std::endl;
+    return 0;
+}
+```
+
+- the condition reads the next number from the standard input and stores that number in value
+- when we use an `istream` as a condition, the effect is to test the state of the stream
+    - if the stream if valid - that is the stream hasn't encountered an error - then the test succeeds
+    - an `istream` becomes invalid when we hit end-of-file or encounter a invalid input, such as reading a value that is not an integer
+
+###### Exercises
+16. `16.cpp`
+
+##### 1.4.4 - The `if` Statement
+- the `if` statement supports conditional execution
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    int currVal = 0, val = 0;
+    if (std::cin >> currVal) {
+        int cnt = 1;
+        while (std::cin >> val) {
+            if (val == currVal) {
+                ++cnt;
+            } else {
+                std::cout << currVal << " occurs " << cnt << " times" << std::endl;
+                currVal = val;
+                cnt = 1;
+            }
+        }
+        std::cout << currVal << " occurs " << cnt << " times" << std::endl;
+    }
+
+    return 0;
+}
+```
+
+- `if` evaluates a condition
+    - if the `if` succeeds, then the condition is ture and we execute the block that starts with the open curly following the condition
+
+###### Exercises
+17. if all the input values are equal, then the program will print one line with the number and the amount of times it was entered, if all the input values are different, then the program will print a line for each number
+18. `18.cpp`
+19. `19.cpp`
+
+### 1.5 - Introducing Classes
+- a class defines a type along with a collection of operations that are related to that type
+
+##### 1.5.1 - The `Sales_item` Class
+- represents the total revenue, numbers of copies sold, and average price for a book
+- operations
+    - call a function `isbn` to fetch the ISBN from a `Sales_object`
+    - use the input (`>>`) and output (`<<`) operators to read and write objects of type `Sales_item`
+    - assignment (`=`) to assign one `Sales_item` object
+    - use the addition (`+`) operator to add two `Sales_item` objects
+        - they must have the same ISBN
+        - the result is a new `Sales_item` object whose ISBN is that of its operands and whose numbers sold and revenue are the sum of the corresponding vallues in its operands
+    - use the compound assignment operator (`+=`) to add one `Sales_item` object into another
+
+- Reading and Writing `Sales_item`s
