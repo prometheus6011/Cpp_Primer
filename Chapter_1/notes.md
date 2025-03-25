@@ -235,3 +235,105 @@ int main()
     - use the compound assignment operator (`+=`) to add one `Sales_item` object into another
 
 - Reading and Writing `Sales_item`s
+
+```cpp
+#include <iostream>
+#include <Sales_item.h>
+int main()
+{
+    Sale_item book;
+    // read ISBN, number of copies sold, and sales price
+    std::cin >> book;
+    // write ISBN, number of copies sold, total revenue, and average price
+    std::cout << book << std::endl;
+    return 0;
+}
+```
+
+- Adding `Sales_item`s
+
+```cpp
+#include <iostream>
+#include "Sales_item.h"
+int main()
+{
+    Sales_item item1, item2;
+    std::cin >> item1 >> item2;
+    std::cout << item1 + item2 << std::endl;
+    return 0;
+}
+```
+
+###### Exercises
+20. `20.cpp` and `Sales_item.h`
+21. `21.cpp`
+22. `22.cpp`
+
+##### 1.5.2 - A First Look at Member Functions
+
+```cpp
+#include <iostream>
+#include "Sales_item.h"
+int main()
+{
+    Sales_item item1, item2;
+    std::cin >> item1 >> item2;
+    // first check that item1 and item2 represent the same book
+    if (item1.isbn() == item2.isbn()) {
+        std::cout << item1 + item2 << std::endl;
+        return 0;
+    } else {
+        std::cerr << "Data must refer to same ISBN" << std::endl;
+        return -1;
+    }
+}
+```
+
+- member functions
+    - the `if` statement calls a member function named `isbn`
+    - member function is a function that is defined as part of a class
+    - member functions are referred to as methods
+    - the dot operator says that we want the member of the object
+        - the dot operator applies only to objects of class type
+    - we use the dot operator to access a member function, we usually do so to call the function
+        - we call a function using the call operator `()`
+        - the call operator is a pair o parentheses that enclose a (possibly empty) list of arguments
+
+###### Exercises
+23. `23.cpp`
+24. `g++ 23.cpp --std=c++11 && ./a.out < book_sales`
+
+### 1.6 - The Bookstore Program
+
+```cpp
+#include <iostream>
+#include "Sales_item.h"
+int main()
+{
+    Sales_item total;   // variable to hold data for the next transaction
+    // read the first transaction and ensure that there are data to process
+    if (std::cin >> total) {
+        Sales_item trans;   // variable to hold the running sum;
+        // read and process the remaining transactions
+        while (std::cin >> trans) {
+            // if we're still processing the same book
+            if (total.isbn() == trans.isbn()) {
+                total += trans;   // update the running total
+            } else {
+                // print the results for the previous book
+                std::cout << total << std::endl;
+                total = trans;   // total refers now to the next book
+            }
+        }
+        std::cout << total << std::endl;
+    } else {
+        // no input! warn the user
+        std::cerr << "No data?!" << std::endl;
+        return -1;
+    }
+    return 0;
+}
+```
+
+###### Exercises
+25. `25.cpp`
