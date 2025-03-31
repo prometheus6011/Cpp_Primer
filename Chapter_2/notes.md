@@ -259,3 +259,90 @@ int &refVal;          // error; a reference must be initializer
     - legal
     - legal, legal to copy values into a `const` object
     - illegal, `cnt` can be incremented, `sz` is const and is immutable
+
+##### 2.4.1 - References to `const`
+- a reference to `const` is a reference that refers to a `const` type
+- a reference to `const` cannot be used to change the object to which the reference is bound
+    - because we annot assign directly, we also should not be able to use a reference to change the underlying value
+- initialization and references to `const`
+    - we can initialize a reference to `const` from any expression that can be converted to the type of the reference
+    - a temporary object is an unnamed object created by the compiler when it needs a place to store a result from an evaluating an expression
+- a reference to `const` may refer to an object that is not `const`
+    - binding a reference to `const` to an ibject says nothing about whether the underlying object itself is `const`
+
+##### 2.4.2 - Pointers and `const`
+- a pointer to `const` may not be used to change the object to which the pointer points
+- we can use a pointer to `const` to point to a non`const` object
+- `const` pointers
+    - the placement of the `const` after the `*` shows that the pointer is `const`, not the object it points to
+
+###### Exercises
+27. legal initializations
+    - illegal, a reference needs to be binded to another variable
+    - legal
+    - legal, a `const` reference can be bound to a temporary object like the literal `0`
+    - legal
+    - legal
+    - illegal, `const` pointer needs to be initializaed at definition
+    - illegal, reference needs to be const otherwise it is able to change the underlying value
+28. illegal definitions
+    - illegal, `const` pointer needs to be initialized from beginning
+    - illegal, `const` pointer needs to be initialized from beginning
+    - illegal, `const int` must be initialized from start
+    - illegal, `const` pointer needs to be initialized from beginning
+    - legal
+29. legal assignments
+    - legal, allowed to copy integers from `const` object to non`const`
+    - illegal, cannot assign `const` pointer to non`const` pointer in fear of changing underlying value
+    - illegal, cannot assign `const int` to a normal `int` pointer
+    - legal
+    - legal
+    - legal
+
+##### 2.4.3 - Top-Level `const`
+- the term top-level `const` indictes that the pointer itself is a `const`
+- the term low-level `const` indicates that the pointer can point to a `const`-object
+
+###### Exercises
+30. top/low level `const`
+    - low-level
+    - no `const`
+    - low-level 
+    - no `const`
+    - low-level
+    - low and high level
+    - low-level
+31. legal assignments
+    - legal
+    - illegal, low-level `const` does not match
+    - legal
+    - illegal, low-level `const` does not match
+    - legal
+
+##### 2.4.4 - `constexpr` and Constant Expressions
+- a constant expression is an expression whose value cannot change and that can be evaluated at compile time
+- `constexpr` Variables
+    - ask the compiler to verify that a variable is a constant 3expression by declaring the variable in a `constexpr` decleration
+- literal types
+- pointers and `constexpr`
+    - when we define a pointer in a `constexpr` declaration, the `constexpr` specifier applies to the pointer, not the type to which the pointer points
+
+###### Exercises
+32. the following code is not legal, you cannot copy a literal into a pointer, it can be made legal by making the integer a `constexpr` declaration
+
+### 2.5 - Dealing with Types
+
+##### 2.5.1 - Type Aliases
+- a type alias is a name that is a synonym for another type
+    - let us simplify complicated type defintiions, making those types easier to use
+    - we can use the keyword `typedef` or a `using` declaration to make type aliases
+
+##### 2.5.2 - The `auto` Specifier
+- allows us the compiler to figure out the type for us using the `auto` type specifier
+- `auto` requires a initializer
+- compound types, `const, and `auto
+    - first, when we use a reference, we are really using the object to which the reference refers
+    - second, `auto` ordinarily ignores top-level `const`s and low-level `const`s are kept
+
+###### Exercises
+33. 
