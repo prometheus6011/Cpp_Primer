@@ -345,4 +345,43 @@ int &refVal;          // error; a reference must be initializer
     - second, `auto` ordinarily ignores top-level `const`s and low-level `const`s are kept
 
 ###### Exercises
-33. 
+35. `j` is an `int`, `k` is a `const int &`, `p` is a pointer to a `const int`, `j2`is a `const int`, `k2` is a reference to an `const int`
+
+##### 2.5.3 - The `decltype` Type Specifier
+- `decltype()` returns the type of its operand
+- `decltype` and references
+    - we get the type that the expression yields
+
+###### Exercises
+36. `a` is an `int`, `b` is an `int`, `c` is an `int`, `d` is an `int &`
+37. `c` is an `int`, `d` is an `int &`
+38. `auto` will ignore top-level `const`s, while `decltype` will not
+
+### 2.6 - Defining Our Own Data Structures
+- a data structure is a way to group together related data elements and a strategy for using those data
+
+##### 2.6.1 - Defining the `Sales_data` Type
+
+```cpp
+struct Sales_data {
+    std::string bookNo;
+    unsigned int units_sold = 0;
+    double revenue = 0.0;
+}
+```
+
+- class data members
+    - data members of a class define the contents of the object of that class type
+
+###### Exercises
+39. `2_39.cpp` 
+40. `Sales_data.h`
+41. `2_41.cpp`
+
+##### 2.6.3 - Writing our own Header Files
+- the `#define` directive takes a name and defines that name as a preprocessor variable
+- the `#ifdef` directive returns true if a preprocessor variable is defined
+- the `#ifndef` directive returns true if the variable has not been defined
+
+###### exercises
+42. `Sales_data.h`
