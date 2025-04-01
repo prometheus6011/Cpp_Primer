@@ -73,4 +73,102 @@ int main()
 5. `3_5.cpp`
 
 ##### 3.2.3 - Dealing with the Characters in a string
+- processing every character? used a range-based `for`
+    - this statement iterates through the elements in a given sequence and performs some operation on each value in that sequence
 
+```cpp
+string str("some string");
+// print the characters in str one character to a line
+for (auto c : str) {
+    cout << c << endl;
+}
+```
+
+- using a range `for` to change the characters in a string
+    - define the loop variable as a reference type
+- processing only some characters
+    - the subscript operator, `[]` takes a `string::size_type` value that denotes the position of the character we want to access
+    - the result of using an index outside the range of the suitable values is undefined
+    - the value is referred to as an index
+
+###### Exercises
+6. `3_6.cpp`
+7. if the loop control variable was `char` it would only copy the value into `c` instead of referencing it
+8. `3_8.cpp`, for this specific exercise i would use the range `for`
+9. it is valid, but the behavior is undefined since there is no way of bounds checking a subscript
+10. `3_10.cpp`
+11. the type of `c` is a `const char&`
+
+### 3.3 - Library `vector` Type
+- a vector is a collection of objects, all of which have the same type
+- a vector is a class template
+
+##### 3.3.1 - Defining and Initializing vectors
+- default initialize a vector, which creates an empty vector of the specified type
+- list initialize a vector
+
+```cpp
+vector<string> articles = {"a", "an", "the"};
+vector<string> articles{"a", "an", "the"};
+```
+
+- creating a specified number of elements
+
+```cpp
+vector<int> ivec(10, -1);
+vector<string> svec(10, "hi!");
+```
+
+- list initializer or element count?
+    - when we use parentheses, we are saying that the values we supply are to be used to construct the object
+    - when we use curly braces, we want to list initialize the object
+
+###### Exercises
+12. defintions
+    - valid
+    - invalid, needs to be a `vector<string>`
+    - valid
+13. elements and sizes
+    - 0 elements
+    - 10 elements, all zero
+    - 10 elements, all 42
+    - 1 element, 10
+    - 2 elements, 10 and 42
+    - 10 elements, all ""
+    - 10 elements, all "hi"
+
+##### 3.3.2 - Adding Elements to a vector
+- `push_back`, member function to add elements onto the back of the vector
+
+###### Exercises
+14. `3_14.cpp`
+15. `3_15.cpp`
+16. `3_16.cpp`
+17. `3_17.cpp`
+18. it is undefined since the vector has no elements and is trying to access the first element
+19. `3_19.cpp`
+20. `3_20.cpp`
+
+### 3.4 - Introducing Iterators
+- iterators give us indirect access to the object
+
+###### 3.4.1 - Using iterators
+- members named `begin` and `end` returns iterators
+    - `begin` returns the first element in the container
+    - `end` returns one past the last element in the container
+- iterator operations
+    - comparison, `==` and `!=`
+        - iterators are equal if they denote the same element or if they are both off-the-end iterators for the same container
+        - unequal otherwise
+    - `*`, dereference like a pointer
+- moving iterators from one element to another
+    - use the `++` increment operator to move from one element to another
+- iterator types
+    - `iterator` and `const_iterator`
+        - `const_iterator` is like a pointer to const
+- the `begin` and `end` operations
+- combining dereference and member access
+    - use the arrow operator to get a data member from a pointer
+
+###### Exercises
+21. `3_21.cpp` 
