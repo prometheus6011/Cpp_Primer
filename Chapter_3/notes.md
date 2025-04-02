@@ -171,4 +171,49 @@ vector<string> svec(10, "hi!");
     - use the arrow operator to get a data member from a pointer
 
 ###### Exercises
-21. `3_21.cpp` 
+21. `3_21.cpp`
+
+##### 3.4.2 - Iterator Arithmetic
+- arithmetic operations on iterators
+    - add or subtract integral values and an iterator
+    - returns a iterator forwards or backwards that many elements
+    - we can also subtract two iterators so long as they refer to elements in, or off the end of, the same `vector` or `string`
+
+###### Exercises
+24. `3_24.cpp`
+26. we wrote it this way to make sure we never come up with an invalid value and go off the end of the container
+
+### 3.5 - Arrays
+- arrays have fixed sizes; we cannot add elements to an array
+
+##### 3.5.1 - Defining and Initializing Built-in Arrays
+- dimension must be known at compile time, therefore a `constexpr`
+
+```cpp
+constexpr unsigned int sz = 42;
+
+int arr[10];  // array of ten ints
+int *parr[sz];  // array of 42 pointers to ints
+```
+
+- arrays can only hold objects, therefore no arrays of references
+- explicitly initializing array elements
+    - we can list initialize elements in an array, we can omit the dimension if this is the case
+- character arrays are special since string literals always end with a null character
+- no copy or assignment
+
+###### Exercises
+27. definitions
+    - illegal, `buf_size` is not a `constexpr`
+    - legal
+    - legal
+    - illegal, dimension needs to be one more for the space of the null character
+28. values
+    - `sa` is a array of empty strings
+    - `ia` is an array of 10 0's
+    - `sa2` is an array of 10 empty strings
+    - `ia2` is an array of 10 undefined integers
+29. arrays are not dynamic and cannot be resized
+30. `ix` needs to start at 0 and go to `array_size - 1`
+31. `3_31.cpp`
+35. `3_35.cpp`  
