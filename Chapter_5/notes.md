@@ -80,6 +80,57 @@
 	- expression is evaluated
 
 ###### Exercises
-15. 
+15. problems in loops
+	- `ix` cannot be used outside the `for` loop body, declare it outside the `for` loop
+	- the `for` header needs a semi-colon to terminate the declaration statement
+	- this is an infinite loop
+17. `5_17.cpp`
 
 ##### 5.4.3 - Range `for` Statement
+- the expression must be of type that return iterators
+- we can always use the type `auto` to match the declaration for the variable
+
+##### 5.4.4 - The `do while` Statement
+- the condition is tested after the statement body completes
+
+###### Exercises
+18. explanation of loops
+	- lines 2-5 need to be in curly braces, prints sum of every input
+	- error, cannot have variable declarations in a condition
+	- error, loop will define a new condition variable everytime
+19. `5_19.cpp`
+
+### 5.5 - Jump Statements
+- interrupt the flow of execution
+
+##### 5.5.1 - The `break` Statement
+- terminates the nearest enclosing `while`, `do while`, `for`, or `switch` statement
+- can only appear within an iteration statement or `switch` statement
+
+###### Exercises
+20. `5_20.cpp`
+
+##### 5.5.2 - The `continue` Statement
+- terminates the current iteration of the nearest enclosing loop and immediately begins the next iteration
+
+###### Exercises
+21. `5_21.cpp`
+
+###### 5.5.3 - The `goto` Statement
+- provides an unconditional jump from the `goto` to a another statement in the same function
+
+###### Exercises
+22. `5_22.cpp`
+
+### 5.6 - `try` Blocks and Exception Handling
+
+##### 5.6.1 - A `throw` expression
+- a `throw` expression is the detecting part of a program
+
+##### 5.6.2 - The `try` Block
+- a `try` block has a sequence of statements
+- following the `try` is a list of one or more `catch` clauses
+	- the `catch` has an object within the parentheses
+
+###### Exercises
+23. `5_23.cpp`
