@@ -1,0 +1,19 @@
+#include <iostream>
+
+int main()
+{
+  int start = 0, end = 0;
+  std::cin >> start >> end;
+
+  if (start > end) {
+    int temp = end;
+    end = start;
+    start = temp;
+  }
+
+  for ( ;start <= end; ++start) {
+    std::cout << start << std::endl;
+  }
+
+  return 0;
+}
