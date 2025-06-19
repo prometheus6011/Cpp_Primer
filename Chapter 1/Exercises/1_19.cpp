@@ -5,14 +5,15 @@ int main()
   int start = 0, end = 0;
   std::cin >> start >> end;
 
-  if (start > end) {
-    int temp = end;
-    end = start;
-    start = temp;
+  if (start >= end) {
+    int temp = start;
+    start = end;
+    end = temp;
   }
 
-  for ( ;start <= end; ++start) {
+  while (start <= end) {
     std::cout << start << std::endl;
+    ++start;
   }
 
   return 0;

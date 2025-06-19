@@ -2,8 +2,7 @@
 
 int main()
 {
-  int start = 0, end = 0;
-  std::cout << "Enter two numbers: ";
+  int start, end;
   std::cin >> start >> end;
 
   while (start <= end) {

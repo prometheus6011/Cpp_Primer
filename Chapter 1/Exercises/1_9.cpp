@@ -2,15 +2,15 @@
 
 int main()
 {
-  int start = 50;
-  int sum = 0;
+  int sum = 0, start = 50;
 
   while (start <= 100) {
     sum += start;
     ++start;
   }
 
-  std::cout << "The sum of values from 50 to 100 (inclusive): " << sum << std::endl;
+  std::cout << "The sum of 50 to 100 inclusive is: "
+    << sum << std::endl;
 
   return 0;
 }

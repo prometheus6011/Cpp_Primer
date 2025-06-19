@@ -2,14 +2,11 @@
 
 int main()
 {
-  int sum = 0;
-  int val = 0;
+  int temp, sum;
+  while (std::cin >> temp)
+    sum += temp;
 
-  while (std::cin >> val) {
-    sum += val;
-  }
-
-  std::cout << "the sum is: " << sum << std::endl;
+  std::cout << "Sum is: " << sum << std::endl;
 
   return 0;
 }
