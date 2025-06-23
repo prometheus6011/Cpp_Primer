@@ -1,15 +1,13 @@
 #include <iostream>
 
-int main()
-{
-  int i1 = 42;
-  int *p1;
+int main() {
+  int i;
+  int *ip = &i;
 
-  p1 = &i1;
-  std::cout << *p1 << std::endl;
-
-  *p1 = 7;
-  std::cout << *p1 << std::endl;
+  *ip = 10;
+  std::cout << i << " " << *ip << std::endl;  // 10 10
+  i = 5;
+  std::cout << i << " " << *ip << std::endl;  // 5 5
 
   return 0;
 }

@@ -9,4 +9,4 @@ struct Sales_data {
   double revenue = 0.0;
 };
 
-#endif  // SALES_DATA_H
+#endif

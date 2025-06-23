@@ -2,6 +2,7 @@
 
 int main()
 {
-  std::cout << "2\tM\n";
+  constexpr int *p = nullptr;
+
   return 0;
 }
