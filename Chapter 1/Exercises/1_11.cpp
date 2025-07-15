@@ -2,13 +2,11 @@
 
 int main()
 {
-  int start, end;
+  std::cout << "Enter two numbers: ";
+  int start = 0, end = 0;
   std::cin >> start >> end;
-
   while (start <= end) {
-    std::cout << start << std::endl;
-    ++start;
+    std::cout << start++ << std::endl;
   }
-
   return 0;
 }

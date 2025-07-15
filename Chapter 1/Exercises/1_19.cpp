@@ -2,19 +2,18 @@
 
 int main()
 {
-  int start = 0, end = 0;
+  int start, end;
   std::cin >> start >> end;
-
-  if (start >= end) {
-    int temp = start;
-    start = end;
-    end = temp;
+  if (end < start) {
+    int temp = end;
+    end = start;
+    start = temp;
   }
 
-  while (start <= end) {
-    std::cout << start << std::endl;
-    ++start;
+  for (; start <= end; ++start) {
+    std::cout << start << " ";
   }
+  std::cout << std::endl;
 
   return 0;
 }

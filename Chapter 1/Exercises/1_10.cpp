@@ -2,11 +2,9 @@
 
 int main()
 {
-  int start = 10;
-  while (start != 0) {
-    std::cout << start << std::endl;
-    --start;
+  int val = 10;
+  while (val != 0) {
+    std::cout << val-- << std::endl;
   }
-
   return 0;
 }

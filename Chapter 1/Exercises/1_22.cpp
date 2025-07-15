@@ -3,12 +3,15 @@
 
 int main()
 {
-  Sales_item sum, item;
-  std::cin >> sum;
-  while (std::cin >> item && item.isbn() == sum.isbn()) {
-    sum += item;
+  Sales_item item, total;
+  std::cin >> total;
+  while (std::cin >> item) {
+    if (total.isbn() != item.isbn()) {
+      std::cout << total << std::endl;
+      return 0;
+    }
+    total += item;
   }
-  std::cout << sum << std::endl;
 
   return 0;
 }

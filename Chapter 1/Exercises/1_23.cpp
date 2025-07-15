@@ -3,22 +3,19 @@
 
 int main()
 {
-  Sales_item item, curr_item;
-  std::cin >> item;
+  Sales_item total, item;
+  std::cin >> total;
 
-  int cnt = 1;
-  while (std::cin >> curr_item) {
-    if (item.isbn() == curr_item.isbn()) {
-      item += curr_item;
-      ++cnt;
+  while (std::cin >> item) {
+    if (item.isbn() != total.isbn()) {
+      std::cout << total << std::endl;
+      total = item;
     } else {
-      std::cout << item << " occured " << cnt << " times" << std::endl;
-      item= curr_item;
-      cnt = 1;
+      total += item;
     }
   }
 
-  std::cout << item << " occured " << cnt << " times" << std::endl;
+  std::cout << total << std::endl;
 
   return 0;
 }

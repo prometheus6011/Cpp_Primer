@@ -2,11 +2,10 @@
 
 int main()
 {
-  int sum = 0;
-  for (int start = 50; start <= 100; ++start) {
-    sum += start;
+  int start = 0, end = 0;
+  std::cin >> start >> end;
+  for (; start <= end; ++start) {
+    std::cout << start << std::endl;
   }
-  std::cout << sum << std::endl;
-
   return 0;
 }

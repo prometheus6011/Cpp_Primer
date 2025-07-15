@@ -3,10 +3,9 @@
 
 int main()
 {
-  Sales_item item1, item2;
-  std::cin >> item1 >> item2;
-
-  std::cout << item1 + item2 << std::endl;
+  Sales_item si1, si2;
+  std::cin >> si1 >> si2;
+  std::cout << si1 + si2 << std::endl;
 
   return 0;
 }
